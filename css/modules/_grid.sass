@@ -1,0 +1,31 @@
+@use "colors" as *
+
+.gallery
+	margin-bottom: 5vh
+
+.grid
+	width: 50%
+	margin: auto
+	display: grid
+	grid-template-columns: repeat(2, 1fr)
+	align-items: center
+	justify-items: center
+	// grid-auto-rows: 100px
+	gap: 80px
+	@media only screen and (max-width: 786px)
+		width: 70%
+		gap: 20px
+	img
+		// padding: 1em
+		max-width: 100%
+		@media only screen and (max-width: 786px)
+			max-height: 150px
+			max-width: 150px
+		transition: transform 0.2s ease-out
+		aspect-ratio: 1 / 1
+		object-fit: contain
+		&:hover
+			position: relative
+			// filter: brightness(1.0)
+			transform: scale(1.2)
+			z-index: 20

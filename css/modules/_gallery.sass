@@ -1,0 +1,36 @@
+@use "colors" as *
+
+.row 
+	display: flex
+	flex-wrap: wrap
+	padding: 0 4px
+	margin: 0 5% 5%
+
+
+.gallery
+	background: $black
+	img
+		max-width: none
+
+
+/* Create four equal columns that sits next to each other */
+.column 
+	flex: 25%
+	max-width: 25%
+	padding: 0 4px
+	@media only screen and (max-width: 786px)
+		flex: 50%
+		max-width: 50%
+	img
+		margin-top: 8px
+		vertical-align: middle    
+		position: relative
+		// filter: brightness(0.5) grayscale(1)
+		transition: transform 0.3s ease-out
+		&:hover
+			position: relative
+			// filter: brightness(1.0)
+			transform: scale(1.15)        
+			z-index: 20
+		@media only screen and (max-width: 786px)
+			filter: brightness(1)

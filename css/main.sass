@@ -1,0 +1,190 @@
+@use "modules" as *
+
+*
+	box-sizing: border-box
+	// margin: 0
+	// padding: 0
+
+html,
+body
+	margin: 0
+	padding: 0
+	width: 100%
+
+	font-family: Montserrat
+	scroll-behavior: smooth
+	scroll-margin: 10em
+	background: $black
+
+section
+	width: 100%
+	min-height: 90vh
+	background-color: $black
+	color: $white
+	background-position: center
+	background-size: cover
+
+h1
+	font-size: 2.5em
+	max-width: 80vw
+	margin-left: auto
+	margin-right: auto
+h1, h2, h3, h4, h5, h6
+	color: $white
+
+.cover
+	text-align: center
+	
+	display: flex
+	align-items: center
+	justify-content: space-evenly
+
+	+mobileFlexRev
+
+	&:nth-of-type(odd)
+		flex-direction: row-reverse
+	&:nth-of-type(even)
+		flex-direction: row
+
+
+.logo
+	max-width: 40vw
+	max-height: 40vh
+	object-fit: contain
+
+#hero
+	min-height: 100vh
+	background-attachment: fixed
+	*:not(div)
+		backdrop-filter: blur(1px)
+
+	#heroImg
+		min-width: 40vw
+		min-height: 40vh
+		@media (max-width: 1000px)
+			min-width: 80vw
+			max-width: 80vw
+			min-height: 40vh
+
+a.btn
+	text-decoration: none
+	font-weight: bold
+	padding: 0.5em 1em
+	border-radius: 0.5em
+	display: inline-block
+	+hover
+
+.content
+	text-align: center
+
+	display: flex
+	flex-direction: column
+	align-items: space-evenly
+	
+	h1
+		margin-top: 10vh
+		@media (max-width: 1000px)
+			margin-top: 10vh
+			margin-bottom: 0
+
+#about
+	@media (max-width: 1000px)
+		height: 200%
+
+marquee
+	font-size: 2em
+
+img, video, iframe
+	min-width: 50px
+	max-width: 50px
+	opacity: 0
+	transition: opacity 2s ease
+	transform: translateZ(0)
+	backface-visibility: hidden
+	// filter: blur(0px)
+	&.sharp
+		image-rendering: pixelated
+	// &#heroImg
+		// transition-delay: 1s
+
+.loaded
+	opacity: 1
+
+#sponsors
+	flex-direction: column
+	align-items: center
+	justify-content: center
+
+.red
+	color: $red
+.red
+	color: $red_light
+
+.header
+	text-align: center
+	padding: 3em 0 0 0
+	h1
+		margin-bottom: 0
+
+.sponsors
+	margin: 0 auto
+	text-align: center
+	div
+		padding-bottom: 2em
+
+.title_sponsor img
+	max-width: 80vw
+	max-height: 35vh
+	transition: transform 0.2s ease-out
+	&:hover
+		position: relative
+		transform: scale(1.2)
+		z-index: 20
+
+#about > h1
+	padding-top: 1em
+
+.scroll-down
+	height: 3em
+	width: 3em
+	// padding: 1.5em
+	border: 0.15em solid white
+	border-radius: 100%
+	cursor: pointer
+
+	&::before,
+	&::after 
+		&:hover
+			border-color: $redt
+		content: ""
+		position: absolute
+		top: 30%
+		left: 50%
+		height: 10px
+		width: 10px
+		transform: translate(-50%, -100%) rotate(45deg)
+		border: 2px solid white
+		border-top: transparent
+		border-left: transparent
+		animation: scroll-down 1s ease-in-out infinite
+
+	&::before 
+		animation-delay: 0.3s
+		/* animation: scroll-down 1s ease-in-out infinite */
+
+@keyframes scroll-down 
+	0% 
+		/* top:20% */
+		opacity: 0
+	
+	30% 
+		opacity: 1
+	
+	60% 
+		opacity: 1
+	
+	100% 
+		top: 80%
+		opacity: 0
+	
+

@@ -1,0 +1,75 @@
+@use "colors" as *
+@use "sass:color"
+
+#tiers
+	display: flex
+	flex-direction: column
+	align-items: center
+	justify-content: center
+	background: $whiteBg
+	@media screen and (max-width: 1000px)
+		display: none
+	h1
+		color: $red
+		margin-top: 2em
+	table
+		margin-bottom: 10vh // 2em
+		text-align: center
+		font-size: 0.8em
+		color: $black
+		border-spacing: 0
+		border-collapse: collapse
+	thead
+		color: $white
+		background: $red
+		font-weight: bold
+	tbody
+		tr:nth-child(odd)
+			background-color: color.scale($whiteBg, $saturation: +50%, $lightness: +60%)
+		tr:nth-child(even)
+			background-color: color.scale($whiteBg, $saturation: +80%, $lightness: +40%)
+	th, td
+		height: 2em
+		padding: 0.5em 1em
+		margin: 0
+		border: 2px solid $black
+
+// .tiers
+// 	color: black
+// 	font-size: 2em
+// 	clip-path: polygon(70% 0%, 30% 0%, 0% 100%, 100% 100%)
+// 	width: 20ex
+// 	div
+// 		padding: 1em
+// 	.title
+// 		background: white
+// 	.diamond
+// 		background: aqua
+// 	.gold
+// 		background: gold
+// 	.silver
+// 		background: silver
+
+.tiers
+	color: $black
+	font-size: 2em
+	display: grid
+	grid-template-columns: repeat(2, 1fr)
+	grid-template-rows: repeat(2, 1fr)
+	align-items: center
+	justify-items: center
+	gap: 2ex
+	div
+		background: $redt
+		line-height: 12ex
+		height: 12ex
+		width: 12ex
+		border-radius: 100%
+	.title
+		background: white
+	.diamond
+		background: aqua
+	.gold
+		background: gold
+	.silver
+		background: silver
